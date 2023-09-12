@@ -1,0 +1,1 @@
+• NameIngr SumIngr штук (TypeIngr, ElementIngr)

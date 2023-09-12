@@ -1,0 +1,26 @@
+{
+    "type": "module",
+    "name": "dominicbot2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js",
+        "build": "webpack",
+        "eslint": "eslint",
+        "prettier": "prettier"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "mysql2": "^3.6.0",
+        "node-telegram-bot-api": "^0.61.0",
+        "nodemon": "^3.0.1",
+        "prompt-sync": "^4.2.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.47.0"
+    }
+}

@@ -1,0 +1,7 @@
+Result
+
+Порядок приготовления:
+BaseIngr
+Ingredients
+KatalIngr
+

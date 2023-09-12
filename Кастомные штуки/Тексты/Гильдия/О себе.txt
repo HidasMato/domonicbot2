@@ -1,0 +1,4 @@
+Член гильдии AvName
+Ранг: RangName
+Проживание: LivingName
+Усердие: UserdieNum

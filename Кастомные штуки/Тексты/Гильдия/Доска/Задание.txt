@@ -1,0 +1,10 @@
+Гильдейское задание №QuestId
+Ранг RangName, 
+DayToComplite дней,
+CoinsRevord серебрянных монет,
+XPRevord опыта,
+Дополнительная награда: DopRevord
+
+TextQuest
+
+CustomMake
