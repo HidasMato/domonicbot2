@@ -10,6 +10,7 @@
     "KotelUpgradeKof": 5,
     "SilverToKotel": 500,
     "SellKof": 5,
+    "PoisonId": 10100,
     "MasObjHealfZelii": [
         {"id": 111111, "kolvoZdor": 1},
         {"id": 111112, "kolvoZdor": 2},
@@ -17,7 +18,7 @@
         {"id": 111114, "kolvoZdor": 4}
     ],
     "Rang": {
-        "0": {"name": "F", "bonus": 2, "hard": 9, "zelie": 1, "run": 6, "money": 20, "xp": 30},
+        "0": {"name": "F", "bonus": 2, "hard": 9, "zelie": 1, "run": -10, "money": 20, "xp": 30},
         "1": {"name": "E", "bonus": 3, "hard": 11, "zelie": 1, "run": 6, "money": 100, "xp": 60},
         "2": {"name": "D", "bonus": 4, "hard": 13, "zelie": 2, "run": 8, "money": 250, "xp": 100},
         "3": {"name": "C", "bonus": 5, "hard": 15, "zelie": 3, "run": 10, "money": 400, "xp": 250},

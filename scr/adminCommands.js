@@ -203,7 +203,7 @@ const adminCommands = async (bot, pool, messageMas, chatId, chat) => {
         if (resRows == -1) return bot.sendMessage(chatId, `Ошибка в бд`)
         if (resRows.affectedRows) {
             await bot.sendMessage(id, `Вам зарегестрировали персонажа ${messageMas[3]}`);
-            if (actCh == null) choiseCharacter(bot, pool, chatId);
+            if (actCh == null) choiseCharacter(bot, pool, id);
             return bot.sendMessage(chatId, `Персонаж с ником ${messageMas[3]} добавлен`, {
                 reply_markup: JSON.stringify({
                     inline_keyboard: [

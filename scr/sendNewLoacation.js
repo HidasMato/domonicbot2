@@ -494,6 +494,9 @@ const sendNewLoacation = async (bot, pool, fromLocation, toLocation, dopState1, 
                 if (!resRows[0]) {
                     text = text + '\n' + getMyText('Тексты/Котел/Неудачная варка');
                     await getListIngr();
+                    resRows = await askMySQL(bot, pool, `SELECT * FROM baseIngredients where id = ${constants.PoisonId}`, 239)
+                    if (resRows == -1) { await adminsGetError(bot, `Не суествует яда с id = ${constants.PoisonId}`) }
+                    if (!resRows[0]) await changeIngredient(constants.PoisonId,1,'+')
                 }
                 else {
                     const idrecipe = resRows[0].idrecipe;
@@ -660,7 +663,7 @@ const sendNewLoacation = async (bot, pool, fromLocation, toLocation, dopState1, 
                     }
                     case 2: {
                         const itemList = await getAllIngredientByType('ингредиент');
-                        if (messageLine == 'Отмена') return bot.sendMessage(chatId, changeMyText(getMyText('Тексты/Котел/Отмена класть') + (kotel.levelUpgrade >= 4 ? '' : getMyText('Тексты/Котел/Можно улучшить')), ['MoneyToKotelUpgrade', 'TimeToKotel'], [constants.KotelUpgradeSilver * Math.pow(constants.KotelUpgradeKof, kotel.levelUpgrade), constants.TimeToCooking / Math.pow(constants.СookingKof, kotel.levelUpgrade)]), { reply_markup: JSON.stringify({ keyboard: keyboardConstructor(toLocation, (kotel.levelUpgrade >= 4 ? [0, 5, 6] : [0, 5, 7, 6]), 2, 2, 2), resize_keyboard: true }) });
+                        if (messageLine == 'Отмена') return bot.sendMessage(chatId, changeMyText(getMyText('Тексты/Котел/Отмена класть') + (kotel.levelUpgrade >= 4 ? '' : getMyText('Тексты/Котел/Можно улучшить')), ['MoneyToKotelUpgrade', 'TimeToKotel'], [constants.KotelUpgradeSilver * Math.pow(constants.KotelUpgradeKof, kotel.levelUpgrade), constants.TimeToCooking / Math.pow(constants.СookingKof, kotel.levelUpgrade)]), { reply_markup: JSON.stringify({ keyboard: keyboardConstructor(toLocation, (kotel.levelUpgrade >= 4 ? [0, 5, 6] : [1, 5, 7, 6]), 2, 2, 2), resize_keyboard: true }) });
                         if (messageLine == '--->') {
                             resRows = await askMySQL(bot, pool, `UPDATE characters SET dopState3 = ${dopState3 + 1} WHERE id = ${character.id}`, 251)
                             if (resRows == -1) { await sendErrorToUser(bot, chatId); return -1; }
@@ -689,7 +692,7 @@ const sendNewLoacation = async (bot, pool, fromLocation, toLocation, dopState1, 
                     }
                     case 3: {
                         const itemList = await getAllIngredientByType('катализатор');
-                        if (messageLine == 'Отмена') return bot.sendMessage(chatId, changeMyText(getMyText('Тексты/Котел/Отмена класть') + (kotel.levelUpgrade >= 4 ? '' : getMyText('Тексты/Котел/Можно улучшить')), ['MoneyToKotelUpgrade', 'TimeToKotel'], [constants.KotelUpgradeSilver * Math.pow(constants.KotelUpgradeKof, kotel.levelUpgrade), constants.TimeToCooking / Math.pow(constants.СookingKof, kotel.levelUpgrade)]), { reply_markup: JSON.stringify({ keyboard: keyboardConstructor(toLocation, (kotel.levelUpgrade >= 4 ? [0, 5, 6] : [0, 5, 7, 6]), 2, 2, 2), resize_keyboard: true }) });
+                        if (messageLine == 'Отмена') return bot.sendMessage(chatId, changeMyText(getMyText('Тексты/Котел/Отмена класть') + (kotel.levelUpgrade >= 4 ? '' : getMyText('Тексты/Котел/Можно улучшить')), ['MoneyToKotelUpgrade', 'TimeToKotel'], [constants.KotelUpgradeSilver * Math.pow(constants.KotelUpgradeKof, kotel.levelUpgrade), constants.TimeToCooking / Math.pow(constants.СookingKof, kotel.levelUpgrade)]), { reply_markup: JSON.stringify({ keyboard: keyboardConstructor(toLocation, (kotel.levelUpgrade >= 4 ? [0, 5, 6] : [2, 5, 7, 6]), 2, 2, 2), resize_keyboard: true }) });
                         if (messageLine == '--->') {
                             resRows = await askMySQL(bot, pool, `UPDATE characters SET dopState3 = ${dopState3 + 1} WHERE id = ${character.id}`, 255)
                             if (resRows == -1) { await sendErrorToUser(bot, chatId); return -1; }
